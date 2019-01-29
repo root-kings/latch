@@ -1,8 +1,8 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
-var moment = require('moment')
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const moment = require('moment')
 
-var UserSchema = new Schema({
+let UserSchema = new Schema({
     name: {
         type: String
     },
@@ -55,9 +55,9 @@ var UserSchema = new Schema({
 })
 
 UserSchema.virtual('age')
-.get(()=>{
-    return moment().diff(moment(this.birth), 'years');
-})
+    .get(() => {
+        return moment().diff(moment(this.birth), 'years');
+    })
 
 
 module.exports = mongoose.model('User', UserSchema)

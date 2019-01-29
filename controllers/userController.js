@@ -1,6 +1,6 @@
-var moment = require('moment')
+const moment = require('moment')
 
-var User = require('../models/user')
+const User = require('../models/user')
 
 exports.get_users = (req, res) => {
     User.find({}).exec((err, result) => {
