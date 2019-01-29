@@ -48,3 +48,14 @@ exports.post_user_create = (req, res) => {
     // res.send(false)
 
 }
+
+exports.get_users_delete = (req, res) => {
+    User.remove({}, (err, result) => {
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.send(result)
+
+        return res.send(false)
+
+    })
+}
