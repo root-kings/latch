@@ -59,3 +59,14 @@ exports.get_users_delete = (req, res) => {
 
     })
 }
+
+exports.post_user_delete = (req, res) => {
+    User.findByIdAndRemove(req.params.id, (err, result) => {
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.send(result)
+
+        return res.send(false)
+
+    })
+}
