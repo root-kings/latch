@@ -7,13 +7,16 @@ var UserSchema = new Schema({
         type: String
     },
     location: {
-        sector: {
+        city: {
             type: String
         },
-        number: {
-            type: Number
+        address: {
+            type: String
         },
-        shop: {
+        country: {
+            type: String
+        },
+        state: {
             type: String
         }
     },
