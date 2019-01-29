@@ -6,6 +6,9 @@ var UserSchema = new Schema({
     name: {
         type: String
     },
+    birth: {
+        type: Date
+    },
     location: {
         city: {
             type: String
@@ -51,7 +54,10 @@ var UserSchema = new Schema({
     }
 })
 
-
+UserSchema.virtual('age')
+.get(()=>{
+    return moment().diff(moment(this.birth), 'years');
+})
 
 
 module.exports = mongoose.model('User', UserSchema)
