@@ -11,3 +11,13 @@ exports.get_users = (req, res) => {
     })
 }
 
+exports.get_user = (req, res) => {
+    User.findById(req.params.id).exec((err, result) => {
+        if (err) return res.status(500).send(err)
+
+        if (result) return res.send(result)
+
+        return res.send(false)
+
+    })
+}
